@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.0/gsap.min.js" integrity="sha512-VyUMqZCOuOJGkz6oLf0IFsX1MryiV7cGNCdoa59AbEgxO4TDZQxWysVWYQXU1M3X0yFeiIifgr7B2bA+tRHTBQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.8/ScrollMagic.min.js" integrity="sha512-U0U8XAy7XjXVgCXK33RCvYXPjcT9+EZHJMQjZANDoHZ1zByT+TnT6eRRQYPR+cTTJk1+zngJLSdHQ+iQ5U5EOg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.8/plugins/animation.gsap.min.js" integrity="sha512-tQc8HSKq3kxC6PQFz2r/r9oNeBgFMY/hBfNjpG3ryXvCkE9SAi5VRJ77jU5W2fuLgB3Zni9HtH1ksVUM79Y4fg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script type="text/javascript" src="js/indxex.js" defer></script>
+    <script type="text/javascript" src="js/script.js" defer></script>
+    <title>홍디자인</title>
+</head>
+<body>
+    <div id="bodybox">
+        <div id="header">
+            <div id="logo"><a href="./main.html"><img src="./img/logo-01-01.png" alt="Logo"></a></div>
+            <div id="main-menu">
+                <ul>
+                    <li><a href="./about.html">About</a></li>
+                    <li><a href="./profile.html">Profile</a></li>
+                    <li><a href="./portfolio.html">Portfolio</a></li>
+                </ul>
+            </div>
+        </div>
+        <div id="slider">
+            <img src="./img/bg_back_1.png" alt="Background Image">
+            <div id="con1_textbox">
+                디자인으로 세상을 널리<br>
+                이롭게 만드는 것,
+                <br>우리는 "홍디자인" 입니다.
+                <br>
+                <a href="./about.html">더 알아보기 ></a>
+            </div>
+        </div>
+        <div id="contents1">
+            <img src="./img/bg_back_2.png" alt="Background Image">
+        </div>
+        <div id="contents2">
+            <img src="./img/bg_back_3.png" alt="Background Image">
+            <div id="con2_textbox">
+                <br>
+                엔진같은 뜨거운 열정으로 <br>
+                끊임없이 성장하는 디자이너<br>
+                심재정입니다.<br>
+                <a href="./profile.html">더 알아보기 ></a>
+            </div>
+        </div>
+        <div id="contents3">
+        </div>
+        <div id="footer">
+            <div id="footer_img"></div>
+            <br>
+            <div id="footer_main">디자인, 세상을 널리 이롭게 하다.</div>
+            <div id="footer_last">
+                <br><br>
+                <h3>사업자 정보</h3><br>
+                HONGDESIGN<br><br>
+                대표 심재정<br><br>
+                사업자 번호 411-28-28065<br><br>
+                경기도 양주시 삼숭로 38번길 191
+                <br><br><br>
+                Tel. 010-9053-9323<br>
+                E-Mail. tlawowjd0809@naver.com
+                <br><br>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+자바스크립트(script.js)
+ScrollMagic을 초기화하고 섹션에 대한 페이드인 효과를 생성하려면 다음 코드를 추가하세요.
+
+javascript
+코드 복사
+document.addEventListener('DOMContentLoaded', function() {
+    // Initialize ScrollMagic Controller
+    var controller = new ScrollMagic.Controller();
+
+    // Function to create fade-in effect
+    function createFadeInEffect(elementId) {
+        var tween = gsap.from(elementId, { opacity: 0, duration: 1 });
+        
+        new ScrollMagic.Scene({
+            triggerElement: elementId,
+            triggerHook: 0.9,  // Trigger when the element is 90% visible
+            reverse: false     // Only trigger once
+        })
+        .setTween(tween)
+        .addTo(controller);
+    }
+
+    // Apply fade-in effect to sections
+    createFadeInEffect("#header");
+    createFadeInEffect("#slider");
+    createFadeInEffect("#contents1");
+    createFadeInEffect("#contents2");
+    createFadeInEffect("#contents3");
+    createFadeInEffect("#footer");
+});
+설명
